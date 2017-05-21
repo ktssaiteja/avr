@@ -1,0 +1,23 @@
+#include<avr/io.h>
+#include<util/delay.h>
+unsigned char input;
+main()
+{
+  DDRD=DDRD&0xFB;
+  DDRD=DDRD|0x10;
+  PORTD=PORTD|0X04;
+  while(1)
+  {
+    input=PIND;
+    input=input&0X04;
+    if(input==0)
+    {
+      PORTD=PORTD&0XEF;
+    }
+    else
+    {
+      PORTD=PORTD|0X10;
+    }
+    _delay_ms(2000);
+  }
+}

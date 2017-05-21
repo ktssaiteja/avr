@@ -3,12 +3,13 @@
 
 int main()
 {
-  DDRD=0X10|DDRD;
+  DDRD=0X30|DDRD;
+
   while(1)
   {
-    PORTD=PORTD&0xEF;
+    PORTD=PORTD&0xCF;
     _delay_ms(500);
-    PORTD=PORTD|0x10;
+    PORTD=PORTD|0x30;
     _delay_ms(500);
   }
 }

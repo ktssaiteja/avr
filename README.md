@@ -14,3 +14,17 @@ Topics
 * AVR Microcontroller Project
 
 Started on May 7, 2017.
+
+May 10, 2017
+Processsor
+-Microprocessor
+-Microcontroller
+
+Memory
+-Volatile(Ex: RAM) -Non Volatile(Ex: Flash Memory, ROM)
+
+-Program Memory(instructions)
+-Data Memory(data)
+
+1)Harvard Architecture(separate PM and DM)
+2)Von Neuman Architecture(unified PM and DM)
