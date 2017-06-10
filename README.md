@@ -14,3 +14,27 @@ Topics
 * AVR Microcontroller Project
 
 Started on May 7, 2017.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+May 13, 2017
+* Setting bits
+* Memory Layout
+* I/O space
+* UART and UART registers
+* Switches
+* Scope
