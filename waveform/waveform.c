@@ -1,9 +1,6 @@
 #include<avr/io.h>
 #include<util/delay.h>
-#define s1 1
-#define s2 2
-#define s3 3
-unsigned char data=0x00, control;
+unsigned char data=0x32, control;
 void uart_init()
 {
   UBRRL=0x33;
@@ -12,20 +9,22 @@ void uart_init()
   UCSRB=0x18;
   UCSRC=0x86;
 }
-
-
-void waveform(double on, double off)
+void delay(int time)
+{
+  while(time--)
+  _delay_ms(1);
+}
+void waveform(int on, int off)
 {
   PORTD=PORTD&0x7F;
-  _delay_ms(on);
+  delay(on);
   PORTD=PORTD|0x80;
-  _delay_ms(off);
+  delay(off);
 }
 
 main()
 {
   DDRD=DDRD|0x80;
-  int state=0;
   uart_init();
   while(1)
   {
@@ -38,13 +37,13 @@ main()
     switch(data)
     {
       case '1':
-      waveform(250.0, 750.0);
+      waveform(250, 750);
       break;
       case '2':
-      waveform(500.0, 500.0);
+      waveform(500, 500);
       break;
       case '3':
-      waveform(750.0, 250.0);
+      waveform(750, 250);
       break;
     }
   }

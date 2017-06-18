@@ -13,24 +13,7 @@ Topics
 * AVR Microcontroller Interfacing
 * AVR Microcontroller Project
 
-Started on May 7, 2017.
-
-<<<<<<< HEAD
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+Started on May 7, 2017
 
 May 13, 2017
 * Setting bits
@@ -53,4 +36,3 @@ Memory
 
 1)Harvard Architecture(separate PM and DM)
 2)Von Neuman Architecture(unified PM and DM)
->>>>>>> f139da6624c6ad7b9b9bae9e4bd4f7eabae3e7ba
