@@ -2,15 +2,19 @@
 #include<util/delay.h>
 #include<avr/interrupt.h>
 unsigned char data=0x00;
-ISR(UART_RX_vect)
+volatile unsigned char count=0x0a;
+ISR(USART_RXC_vect)
 {
   data=UDR;
   data++;
   UDR=data;
+  count--;
 }
-ISR(UART_TX_vect)
+ISR(USART_TXC_vect)
 {
-
+//  data++;
+  //UDR=data;
+  //count--;
 }
 void uart_init()
 {
@@ -26,5 +30,7 @@ main()
   sei();
   while(1)
   {
+    if(count==0)
+    cli();
   }
 }

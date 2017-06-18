@@ -12,6 +12,16 @@ void uart_init()
   UCSRB=0x18;
   UCSRC=0x86;
 }
+
+
+void waveform(double on, double off)
+{
+  PORTD=PORTD&0x7F;
+  _delay_ms(on);
+  PORTD=PORTD|0x80;
+  _delay_ms(off);
+}
+
 main()
 {
   DDRD=DDRD|0x80;
@@ -22,36 +32,21 @@ main()
     control=UCSRA;
     if(control&0x80)
     {
+    if((UDR=='1')||(UDR=='2')||(UDR=='3'))
     data=UDR;
-    if(data=='1')
-    state=s1;
-    else if(data=='2')
-    state=s2;
-    else if(data=='3')
-    state=s3;
-    if(data=='.')
-    break;
     }
-    if(state==s1)
+    switch(data)
     {
-      PORTD=PORTD&0x7F;
-      _delay_ms(250);
-      PORTD=PORTD|0x80;
-      _delay_ms(750);
-    }
-    if(state==s2)
-    {
-      PORTD=PORTD&0x7F;
-      _delay_ms(500);
-      PORTD=PORTD|0x80;
-      _delay_ms(500);
-    }
-    if(state==s3)
-    {
-      PORTD=PORTD&0x7F;
-      _delay_ms(750);
-      PORTD=PORTD|0x80;
-      _delay_ms(250);
+      case '1':
+      waveform(250.0, 750.0);
+      break;
+      case '2':
+      waveform(500.0, 500.0);
+      break;
+      case '3':
+      waveform(750.0, 250.0);
+      break;
     }
   }
+
 }
