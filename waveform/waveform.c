@@ -32,19 +32,19 @@ main()
     if(control&0x80)
     {
     if((UDR=='1')||(UDR=='2')||(UDR=='3'))
-    data=UDR;
+      data=UDR;
     }
-    s1itch(data)
+    switch(data)
     {
-      case '1':
+      case '2':
       waveform(250, 750);
       UDR=0x31;
       break;
-      case '2':
+      case '3':
       waveform(500, 500);
       UDR=0x32;
       break;
-      case '3':
+      case '4':
       waveform(750, 250);
       UDR=0x33;
       break;
