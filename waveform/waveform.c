@@ -34,18 +34,23 @@ main()
     if((UDR=='1')||(UDR=='2')||(UDR=='3'))
     data=UDR;
     }
-    switch(data)
+    s1itch(data)
     {
       case '1':
       waveform(250, 750);
+      UDR=0x31;
       break;
       case '2':
       waveform(500, 500);
+      UDR=0x32;
       break;
       case '3':
       waveform(750, 250);
+      UDR=0x33;
       break;
+      default:
+        UDR='D';
+        break;
     }
   }
-
 }
